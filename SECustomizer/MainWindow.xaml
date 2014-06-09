@@ -1,0 +1,19 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:SECustomizer" mc:Ignorable="d" x:Class="SECustomizer.MainWindow"
+        Title="SECustomizer" Height="505" Width="808">
+
+    <DockPanel LastChildFill="True">
+        <Menu Height="20" VerticalAlignment="Top" DockPanel.Dock="Top">
+            <MenuItem Header="_Exit" Click="Exit_Click" />
+            <MenuItem Header="_Tweaks"  Click="MenuItem_Click">
+                <MenuItem Header="_Construction Speed Modifier" Name="CubeBlocksSpeed"/>
+                <MenuItem Header="_Inventory Editor" Name="InventoryEditor"/>
+            </MenuItem>
+        </Menu>
+        <ScrollViewer x:Name="mainPanel" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" DockPanel.Dock="Bottom">
+        </ScrollViewer>
+    </DockPanel>
+</Window>
+
