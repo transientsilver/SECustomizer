@@ -11,11 +11,12 @@
                 <DataGridTextColumn x:Name="nameColumn" Binding="{Binding ItemName}" Header="Name" IsReadOnly="True" Width="Auto"/>
                 <DataGridTextColumn x:Name="sizeColumn" Binding="{Binding ItemType}" Header="Type" IsReadOnly="True" Width="Auto"/>
                 <DataGridTextColumn x:Name="buildTimeColumn" Binding="{Binding Amount}" Header="Amount" Width="SizeToHeader"/>
-            </DataGrid.Columns>            
+            </DataGrid.Columns>
         </DataGrid>
         <ComboBox x:Name="cboInventoryCapable" HorizontalAlignment="Left" Margin="64,67,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="cboInventoryCapable_SelectionChanged" Height="28"/>
         <Button x:Name="btnAddItem" Content="Add New Item" HorizontalAlignment="Left" Margin="475,211,0,0" VerticalAlignment="Top" Width="92" Click="btnAddItem_Click" IsEnabled="False"/>
         <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="117,317,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
         <ComboBox x:Name="cboAvailableItems" HorizontalAlignment="Left" Margin="428,166,0,0" VerticalAlignment="Top" Width="171" IsEnabled="False"/>
+        <ComboBox x:Name="cboEntities" HorizontalAlignment="Left" Margin="64,27,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="cboEntities_SelectionChanged"/>
     </Grid>
 </UserControl>

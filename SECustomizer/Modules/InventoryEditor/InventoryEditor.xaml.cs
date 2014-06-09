@@ -34,12 +34,12 @@ namespace SECustomizer
             if (savefile != null)
             {
                 manager = new InventoryManager(savefile);
-                
+
+                cboEntities.ItemsSource = manager.entities;
+                cboEntities.DisplayMemberPath = "DisplayName";
+
                 cboAvailableItems.ItemsSource = manager.stockItems;
                 cboAvailableItems.DisplayMemberPath = "Description";
-                
-                cboInventoryCapable.ItemsSource = manager.blocks;
-                cboInventoryCapable.DisplayMemberPath = "TypeName";
             }
             else
             {
@@ -63,21 +63,33 @@ namespace SECustomizer
             InventoryCapableItem selectedInventory = (InventoryCapableItem) cboInventoryCapable.SelectedItem;
             Item newItem = (Item) cboAvailableItems.SelectedItem;
             manager.addItemToInventory(selectedInventory, newItem);
-            manager.Save();
             this.refreshItemGrid(selectedInventory);
         }
 
         private void refreshItemGrid(InventoryCapableItem selected)
         {
-            inventoryDataGrid.ItemsSource = selected.items;
-            cboAvailableItems.IsEnabled = true;
-            btnAddItem.IsEnabled = true;
+            if (selected != null)
+            {
+                inventoryDataGrid.ItemsSource = selected.items;
+                cboAvailableItems.IsEnabled = true;
+                btnAddItem.IsEnabled = true;
+            }
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             manager.Save();
             MessageBox.Show("Saved.");
+        }
+
+        private void cboEntities_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            cboInventoryCapable.ItemsSource = null;
+            inventoryDataGrid.ItemsSource = null;
+
+            Entity selectedEntity = (Entity)cboEntities.SelectedItem;
+            cboInventoryCapable.ItemsSource = selectedEntity.blocks;
+            cboInventoryCapable.DisplayMemberPath = "TypeName";
         }
 
     }
